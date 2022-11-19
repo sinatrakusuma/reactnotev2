@@ -1,0 +1,31 @@
+@media screen and (min-width: 650px) {
+    .record-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .edit-page__input .edit-page__input__title {
+      width: 100%;
+      background-color: transparent;
+      border: 0;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 64px;
+      font-weight: bold;
+      padding: 8px 0;
+      margin-bottom: 20px;
+  }
+    .whole-page__title { 
+      font-size: 75px;
+    }
+  }
+  
+  @media screen and (min-width: 850px) {
+    .record-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media screen and (min-width: 1200px) {
+    .record-list {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
