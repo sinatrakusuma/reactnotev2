@@ -6,9 +6,9 @@ import { showFormattedDate } from '../../utils'
 import {
   archiveNote, deleteNote, getNote, unarchiveNote
 } from '../../utils/network-data'
-import NotesIdPageAction from '../../components/notes/NotesIdPageAction'
-import NotFoundMessage from '../../components/NotFound/NotFoundMessage'
-import LoadingIndicator from '../../components/Loading/LoadingIndicator'
+import ButtonArchive from '../../components/ButtonArchive/ButtonArchive'
+import NotFound from '../../components/NotFound/NotFound'
+import Loading from '../../components/Loading/Loading'
 import useLanguage from '../../hooks/useLanguage'
 
 export default function NotesIdPages() {
@@ -93,15 +93,15 @@ export default function NotesIdPages() {
           <div className="detail-page__body">
             { parser(note.body) }
           </div>
-          <NotesIdPageAction
+          <ButtonArchive
             archived={note.archived || false}
             handleArchive={handleArchive}
             handleDelete={handleDelete}
           />
         </>
       ) : ''}
-      {(!('id' in note) && !loading) ? <NotFoundMessage /> : ''}
-      {loading ? <LoadingIndicator /> : ''}
+      {(!('id' in note) && !loading) ? <NotFound /> : ''}
+      {loading ? <Loading /> : ''}
     </section>
   )
 }

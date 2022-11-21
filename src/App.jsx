@@ -3,8 +3,8 @@ import Routes from './routes'
 import LocaleContext from './contexts/LocaleContext'
 import AuthContext from './contexts/AuthContext'
 import { getUserLogged } from './utils/network-data'
-import LoadingIndicator from './components/Loading/LoadingIndicator'
-import HeaderComponent from './components/Tittle/HeaderComponent'
+import Loading from './components/Loading/Loading'
+import Tittle from './components/Tittle/Tittle'
 import ThemeContext from './contexts/ThemeContext'
 import useTheme from './hooks/useTheme'
 
@@ -75,11 +75,11 @@ function App() {
       <LocaleContext.Provider value={localeContextValue}>
         <AuthContext.Provider value={authContextValue}>
           <div className="app-container">
-            <HeaderComponent />
+            <Tittle />
             <main>
               {
                 loading ? (
-                  <LoadingIndicator />
+                  <Loading />
                 ) : (
                   <Routes />
                 )

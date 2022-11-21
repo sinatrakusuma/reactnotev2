@@ -6,7 +6,7 @@ const appPage = {
         archives: 'Arsip'
       },
       msg: {
-        confirm: 'Kamu yakin ingin keluar?',
+        confirm: 'Anda yakin dengan ini?',
         loading: 'Mengambil data...',
         error: 'Ada kesalahan teknis. Coba lagi nanti.'
       },
