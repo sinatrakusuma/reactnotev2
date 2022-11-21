@@ -41,10 +41,6 @@ export default function ArchivesPage() {
       initNotesFromApi()
     }
 
-    /**
-     * Jika sudah init notes
-     * filter dari memory local
-     */
     if (initNotes) {
       let tempDataNotes = [...dataNotes]
       if (search !== '') {
