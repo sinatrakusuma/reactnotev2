@@ -1,8 +1,8 @@
 import React, {useEffect, useState } from 'react'
 import ButtonAdd from '../components/ButtonAdd/ButtonAdd'
-import LoadingIndicator from '../components/Loading/LoadingIndicator'
-import NoteListEmpty from '../components/notes/NoteListEmpty'
-import NotesList from '../components/notes/NotesList'
+import Loading from '../components/Loading/Loading'
+import EmptyRecord from '../components/EmptyRecord/EmptyRecord'
+import ListRecord from '../components/ListRecord/ListRecord'
 import useInput from '../hooks/useInput'
 import useLanguage from '../hooks/useLanguage'
 import { getActiveNotes } from '../utils/network-data'
@@ -63,9 +63,9 @@ export default function IndexPage() {
           onChange={setSearch}
         />
       </section>
-      {(notes.length > 0 && !loading) ? <NotesList notes={notes} /> : ''}
-      {(notes.length === 0 && !loading) ? <NoteListEmpty /> : ''}
-      {loading ? <LoadingIndicator /> : ''}
+      {(notes.length > 0 && !loading) ? <ListRecord notes={notes} /> : ''}
+      {(notes.length === 0 && !loading) ? <EmptyRecord /> : ''}
+      {loading ? <Loading /> : ''}
       <ButtonAdd />
     </section>
   )

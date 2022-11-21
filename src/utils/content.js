@@ -6,7 +6,7 @@ const appPage = {
         archives: 'Arsip'
       },
       msg: {
-        confirm: 'Kamu yakin ingin keluar?',
+        confirm: 'Anda yakin dengan ini?',
         loading: 'Mengambil data...',
         error: 'Ada kesalahan teknis. Coba lagi nanti.'
       },
@@ -42,7 +42,7 @@ const appPage = {
   const loginPage = {
     id: {
       header: 'Tolong masukan akun terlebih dahulu.',
-      footer: 'anda belum punya memiliki akun?',
+      footer: 'anda belum pun memiliki sebuah akun?',
       footerRegisterLink: 'Daftar disini'
     },
     en: {

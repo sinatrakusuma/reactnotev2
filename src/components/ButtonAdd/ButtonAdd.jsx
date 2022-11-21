@@ -2,7 +2,7 @@ import React from 'react'
 import { HiPlus } from 'react-icons/hi'
 import { useNavigate } from 'react-router-dom'
 import useLanguage from '../../hooks/useLanguage'
-import PageAction from '../execution/Execution'
+import PageAction from '../Execution/Execution'
 
 export default function HomePageAction() {
   const text = useLanguage('app')

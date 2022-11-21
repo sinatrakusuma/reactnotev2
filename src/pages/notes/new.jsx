@@ -5,7 +5,7 @@ import {
   ContentState, convertFromHTML, EditorState, convertToRaw
 } from 'draft-js'
 import draftToHtml from 'draftjs-to-html'
-import AddNewPageAction from '../../components/notes/AddNewPageAction'
+import ButtonAll from '../../components/ButtonAll/ButtonAll'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import { addNote } from '../../utils/network-data'
 import useInput from '../../hooks/useInput'
@@ -61,7 +61,7 @@ export default function NotesNewPages() {
           onEditorStateChange={onEditorStateChange}
         />
       </div>
-      <AddNewPageAction
+      <ButtonAll
         handleSave={handleSave}
       />
     </section>
