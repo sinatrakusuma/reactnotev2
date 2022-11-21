@@ -1,14 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono:400');
+
 :root {
-    --primary: #BB86FC;
-    --primary-variant: #3700B3;
-    --secondary: #03DAC6;
-    --background: #202124;
-    --surface: #202124;
-    --error: #CF6679;
-    --warning: #F39C12;
-    --on-background: #FFFFFF;
-    --on-background-grey: #c7c7c7;
-    --on-surface: #FFFFFF;
+  --background: #000;
+  --suface: #000;
+  --on-background: #fff;
+  --on-background-grey: #6d6d6d;
+  --on-surface: #fff;
   }
   
   [data-theme="light"] {
@@ -23,12 +21,9 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
   }
   
-  a {
-    color: var(--on-background);
-    text-decoration: none;
-  }
   
   
   body {
@@ -44,23 +39,41 @@
   
   header {
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 16px;
-    border-bottom: 1px solid var(--on-background);
+    padding: 25px;
+    margin-bottom: 10px;
   }
   
   header h1 {
-    flex: 1;
+    margin-right: 0px;
   }
   
-  header .navigation ul li {
+  header .navgator ul li {
     display: inline-block;
-    font-size: 24px;
+    font-size: 17px;
     margin: 0 8px;
   }
   
+  a {
+    color: var(--on-background);
+    text-decoration: none;
+  }
   
+  header .navgator ul li:hover {
+    border: 1px solid #ffffff;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+  
+  header .navgator ul li button {
+    font-size: 18px;
+    background: transparent;
+    color: var(--on-background);
+    cursor: pointer;
+    border: 0;
+  }
+
   main {
     margin: 0 auto;
     padding: 32px 0;
@@ -68,7 +81,7 @@
     max-width: 1200px;
   }
   
-  .notes-list {
+  .record-list {
     margin-top: 32px;
     display: grid;
     grid-template-columns: 1fr;
@@ -76,32 +89,32 @@
     padding: 16px 8px;
   }
   
-  .notes-list-empty {
+  .record-list-empty {
     margin-top: 32px;
     padding: 16px 8px;
   }
   
-  .notes-list-empty p {
+  .record-list-empty p {
     text-align: center;
     color: var(--on-background-grey);
   }
-  .note-item {
+  .Card-Record {
     padding: 16px;
     border-radius: 8px;
     border: 1px solid var(--on-background);
   }
   
-  .note-item__title {
+  .Card-Record__title {
     margin: 4px 0;
   }
   
-  .note-item__createdAt {
+  .Card-Record__createdAt {
     color: var(--on-background-grey);
     font-size: 14px;
     margin: 4px 0;
   }
   
-  .note-item__body {
+  .Card-Record__body {
     margin-top: 16px;
     overflow: hidden;
     display: -webkit-box;
@@ -212,7 +225,7 @@
     color: var(--on-background-grey);
   }
   
-  .toggle-theme, .toggle-locale, .button-logout {
+  .toggle-theme, .Switch-Lang, .button-logout {
     background-color: transparent;
     border: 0;
     cursor: pointer;
@@ -226,7 +239,7 @@
     font-size: 28px;
   }
   
-  .toggle-locale {
+  .Switch-Lang {
     font-size: 28px;
   }
   
@@ -283,7 +296,7 @@
   }
   
   @media screen and (min-width: 650px) {
-    .notes-list {
+    .record-list {
       grid-template-columns: repeat(2, 1fr);
     }
   
@@ -293,13 +306,13 @@
   }
   
   @media screen and (min-width: 850px) {
-    .notes-list {
+    .record-list {
       grid-template-columns: repeat(3, 1fr);
     }
   }
   
   @media screen and (min-width: 1200px) {
-    .notes-list {
+    .record-list {
       grid-template-columns: repeat(4, 1fr);
     }
   }
