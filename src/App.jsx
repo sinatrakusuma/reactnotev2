@@ -1,36 +1,94 @@
-import React from 'react'
-import {
-  Link, Navigate, Route, Routes
-} from 'react-router-dom'
-import Navbar from './components/navbar/Navbar'
-import IndexPage from './pages/main/index'
-import NotFoundPages from './pages/pagenotfound/not-found'
-import ArchivesPage from './pages/archive/archives'
-import IdRecord from './pages/details/details'
-import AddNew from './pages/addnew/addNew'
-import RecordEdit from './pages/edit/edit'
+import React, { useEffect, useMemo, useState } from 'react'
+import Routes from './routes'
+import LocaleContext from './contexts/LocaleContext'
+import AuthContext from './contexts/AuthContext'
+import { getUserLogged } from './utils/network-data'
+import LoadingIndicator from './components/Loading/LoadingIndicator'
+import HeaderComponent from './components/Tittle/HeaderComponent'
+import ThemeContext from './contexts/ThemeContext'
+import useTheme from './hooks/useTheme'
 
 function App() {
+  const [auth, setAuth] = useState(null)
+  const [locale, setLocale] = useState('id')
+  const [theme, changeTheme] = useTheme()
+  const [loading, setLoading] = useState(true)
+
+  const toggleLocale = () => {
+    localStorage.setItem('locale', (locale === 'id' ? 'en' : 'id'))
+    setLocale((prevLocale) => (prevLocale === 'id' ? 'en' : 'id'))
+  }
+
+  const localeContextValue = useMemo(() => ({
+    locale,
+    toggleLocale
+  }), [locale])
+
+  const authContextValue = useMemo(() => ({
+    auth,
+    setAuth
+  }), [auth])
+
+  const themeContextValue = useMemo(() => ({
+    theme,
+    changeTheme
+  }), [auth])
+
+  useEffect(() => {
+    /**
+     * Get User Logged
+     */
+    getUserLogged()
+      .then((res) => {
+        if (!res.error) {
+          setAuth(res.data)
+        } else {
+          setAuth(null)
+        }
+        setLoading(false)
+      })
+      .catch(() => {
+        alert('Error')
+      })
+
+    /**
+     * Inisialisasi Locale
+     */
+    if (localStorage.locale && ['id', 'en'].includes(localStorage.locale)) {
+      setLocale(localStorage.locale)
+    }
+
+    /**
+     * Inisialisasi Theme
+     */
+
+    if (localStorage.theme) {
+      changeTheme(localStorage.theme)
+    } else {
+      localStorage.setItem('theme', 'dark')
+      changeTheme('dark')
+    }
+  }, [])
+
   return (
-    <div className="record-wrap">
-      <header>
-        <h1>
-          <Link to="/">xonote</Link>
-        </h1>
-        <Navbar />
-      </header>
-      <main>
-        <Routes>
-          <Route path="/" element={<IndexPage />} />
-          <Route path="/archives" element={<ArchivesPage />} />
-          <Route path="/records" element={<Navigate to="/" replace />} />
-          <Route path="/records/new" element={<AddNew />} />
-          <Route path="/records/:id" element={<IdRecord />} />
-          <Route path="/records/:id/edit" element={<RecordEdit />} />
-          <Route path="*" element={<NotFoundPages />} />
-        </Routes>
-      </main>
-    </div>
+    <ThemeContext.Provider value={themeContextValue}>
+      <LocaleContext.Provider value={localeContextValue}>
+        <AuthContext.Provider value={authContextValue}>
+          <div className="app-container">
+            <HeaderComponent />
+            <main>
+              {
+                loading ? (
+                  <LoadingIndicator />
+                ) : (
+                  <Routes />
+                )
+              }
+            </main>
+          </div>
+        </AuthContext.Provider>
+      </LocaleContext.Provider>
+    </ThemeContext.Provider>
   )
 }
 
