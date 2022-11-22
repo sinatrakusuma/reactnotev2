@@ -9,7 +9,7 @@ export default function LoginPage() {
   const { setAuth } = useContext(AuthContext)
   const [email, onEmailChange] = useInput('')
   const [password, onPasswordChange] = useInput('')
-  const navigate = useNavigate()
+  const Navigation = useNavigate()
   const textApp = useLanguage('app')
   const textLogin = useLanguage('login')
 
@@ -31,7 +31,7 @@ export default function LoginPage() {
               } else {
                 setAuth(null)
               }
-              navigate('/')
+              Navigation('/')
             })
             .catch(() => {
               alert(textApp.msg.error)

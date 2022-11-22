@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { HiX, HiCheck } from 'react-icons/hi'
 import { useNavigate } from 'react-router-dom'
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CancelIcon from '@mui/icons-material/Cancel';
 import PageAction from '../Execution/Execution'
 import useLanguage from '../../hooks/useLanguage'
 
 function ButtonAll({ handleSave }) {
   const Lang = useLanguage('app')
-  const navigate = useNavigate()
+  const Navigation = useNavigate()
 
   return (
     <PageAction page="add-new-page">
@@ -16,9 +17,9 @@ function ButtonAll({ handleSave }) {
           className="Button"
           type="button"
           title={Lang.cancel}
-          onClick={() => navigate('/')}
+          onClick={() => Navigation('/')}
         >
-          <HiX />
+        <CancelIcon />
         </button>
         <button
           className="Button"
@@ -26,7 +27,7 @@ function ButtonAll({ handleSave }) {
           title={Lang.add}
           onClick={() => handleSave()}
         >
-          <HiCheck />
+        <CheckCircleIcon />
         </button>
       </>
     </PageAction>

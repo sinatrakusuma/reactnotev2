@@ -14,7 +14,7 @@ import useLanguage from '../../hooks/useLanguage'
 export default function NotesNewPages() {
   const textApp = useLanguage('app')
   const textNote = useLanguage('notesNew')
-  const navigate = useNavigate()
+  const Navigation = useNavigate()
 
   const [ title, setTitle ] = useInput('')
   const [ body, setBody ] = useState(
@@ -35,7 +35,7 @@ export default function NotesNewPages() {
       .then((res) => {
         if (!res.error) {
           alert(textNote.msgSuccess)
-          navigate('/')
+          Navigation('/')
         }
       })
       .catch(() => {

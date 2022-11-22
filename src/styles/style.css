@@ -54,7 +54,7 @@
   }
   
   header .navgator ul li:hover {
-    border: 1px solid #ffffff;
+    border: 1px solid var(--on-background);
     padding: 5px;
     border-radius: 10px;
     font-weight: bold;

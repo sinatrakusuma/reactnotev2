@@ -6,7 +6,7 @@ import useLanguage from '../../hooks/useLanguage'
 
 export default function ButtonAdd() {
   const Lang = useLanguage('app')
-  const navigate = useNavigate()
+  const Navigation = useNavigate()
 
   return (
     <PageAction page="homepage">
@@ -14,7 +14,7 @@ export default function ButtonAdd() {
         className="Button"
         type="button"
         title={Lang.add}
-        onClick={() => navigate('/notes/new')}
+        onClick={() => Navigation('/notes/new')}
       >
         <PlusOneIcon />
       </button>

@@ -17,7 +17,7 @@ export default function NotesIdPages() {
   const { id } = useParams()
   const textApp = useLanguage('app')
   const textNote = useLanguage('notesId')
-  const navigate = useNavigate()
+  const Navigation = useNavigate()
 
   const handleArchive = () => {
     if (confirm(textApp.msg.confirm)) {
@@ -32,7 +32,7 @@ export default function NotesIdPages() {
       methods
         .then((res) => {
           if (!res.error) {
-            navigate(navigateTo)
+            Navigation(navigateTo)
           }
         })
         .catch(() => {
@@ -45,7 +45,7 @@ export default function NotesIdPages() {
     if (confirm(textApp.msg.confirm)) {
       deleteNote(id).then(res => {
         if (!res.error) {
-          navigate('/')
+          Navigation('/')
         }
       })
       .catch(() => {

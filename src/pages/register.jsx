@@ -10,7 +10,7 @@ export default function RegisterPage() {
   const [password, onPasswordChange] = useInput('')
   const [confirmPassword, onConfirmPasswordChange] = useInput('')
 
-  const navigate = useNavigate()
+  const Navigation = useNavigate()
 
   const textApp = useLanguage('app')
   const textRegister = useLanguage('register')
@@ -30,7 +30,7 @@ export default function RegisterPage() {
       .then((res) => {
         if (!res.error) {
           alert(textRegister.msg.registerSuccess)
-          navigate('/login')
+          Navigation('/login')
         }
       })
       .catch(() => {

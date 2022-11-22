@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { MdLogout } from 'react-icons/md'
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import AuthContext from '../../contexts/AuthContext'
 import useLanguage from '../../hooks/useLanguage'
 
@@ -24,7 +24,7 @@ export default function ButtonLogout() {
           className="button-logout"
           onClick={handleLogout}
         >
-          <MdLogout />
+          <ExitToAppIcon/>
         </button>
       ) : ''
     }

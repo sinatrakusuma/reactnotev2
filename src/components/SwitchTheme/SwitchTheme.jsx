@@ -1,6 +1,6 @@
 import React from 'react'
-import { GrSun } from 'react-icons/gr'
-import { IoMdMoon } from 'react-icons/io'
+import ToggleOffIcon from '@mui/icons-material/ToggleOff';
+import ToggleOnIcon from '@mui/icons-material/ToggleOn';
 import useTheme from '../../hooks/useTheme'
 
 export default function SwitchTheme() {
@@ -13,7 +13,7 @@ export default function SwitchTheme() {
       onClick={() => changeTheme(theme === 'dark' ? 'light' : 'dark')}
     >
       {
-        theme === 'dark' ? <IoMdMoon /> : <GrSun />
+        theme === 'dark' ? <ToggleOnIcon/> : <ToggleOffIcon/>
       }
     </button>
   )

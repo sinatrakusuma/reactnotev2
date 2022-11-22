@@ -73,14 +73,14 @@ const appPage = {
   
   const notePage = {
     id: {
-      header: 'Catatan Aktif',
+      header: 'Cari Record catatan aktif',
       searchPlaceholder: 'Cari Record dengan menggunakan judul ...',
-      empty: 'Tidak ada catatan.'
+      empty: 'Tidak ada record.'
     },
     en: {
-      header: 'Active Notes',
-      searchPlaceholder: 'Find Records ...',
-      empty: 'Empty.'
+      header: 'Look for active records',
+      searchPlaceholder: 'Search Record by title ...',
+      empty: 'Empty record.'
     }
   }
   
