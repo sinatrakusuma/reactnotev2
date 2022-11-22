@@ -1,17 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function PageAction({ page, children }) {
+function Execution({ page, children }) {
   return (
-    <div className={`${page}__action`}>
+    <div className={`${page}__execution`}>
       { children }
     </div>
   )
 }
 
-PageAction.propTypes = {
+Execution.propTypes = {
   page: PropTypes.string.isRequired,
   children: PropTypes.element.isRequired
 }
 
-export default PageAction
+export default Execution

@@ -1,4 +1,4 @@
-const showFormattedDate = (date) => {
+const formatDatetime = (date) => {
     const options = {
       weekday: 'long',
       year: 'numeric',
@@ -14,5 +14,5 @@ const showFormattedDate = (date) => {
     .parseFromString(html, 'text/html')
     .documentElement.textContent
   
-  export { showFormattedDate, capitalizeFirstLetter, extractContent }
+  export { formatDatetime, capitalizeFirstLetter, extractContent }
   

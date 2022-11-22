@@ -2,16 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { extractContent } from '../../utils'
 
-function CardBody({ body }) {
+function Records({ body }) {
   return (
-    <p className="note-item__body">
+    <p className="item-records__body">
       { extractContent(body) }
     </p>
   )
 }
 
-CardBody.propTypes = {
+Records.propTypes = {
   body: PropTypes.string.isRequired
 }
 
-export default CardBody
+export default Records

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { MdGTranslate } from 'react-icons/md'
+import TranslateIcon from '@mui/icons-material/Translate';
 import LocaleContext from '../../contexts/LocaleContext'
 
 export default function SwitchLang() {
@@ -12,7 +12,7 @@ export default function SwitchLang() {
       className="toggle-locale"
       onClick={toggleLocale}
     >
-      <MdGTranslate />
+      <TranslateIcon/>
     </button>
   )
 }

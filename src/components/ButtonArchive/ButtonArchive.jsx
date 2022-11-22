@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { HiOutlineTrash } from 'react-icons/hi'
-import { BiArchiveIn, BiArchiveOut } from 'react-icons/bi'
-import PageAction from '../Execution/Execution'
+import Archive from '@mui/icons-material/Archive';
+import UnarchiveIcon from '@mui/icons-material/Unarchive';
+import Execution from '../Execution/Execution'
+import Delete from '@mui/icons-material/DeleteForever';
 import useLanguage from '../../hooks/useLanguage'
 
 function ButtonArchive({
@@ -11,7 +12,7 @@ function ButtonArchive({
   const Lang = useLanguage('app')
 
   return (
-    <PageAction page="detail-page">
+    <Execution page="record-detail">
       <>
         <button
           className="Button"
@@ -19,7 +20,7 @@ function ButtonArchive({
           title={archived ? Lang.active : Lang.archive}
           onClick={() => handleArchive()}
         >
-          {archived ? <BiArchiveOut /> : <BiArchiveIn />}
+          {archived ? <UnarchiveIcon /> : <Archive />}
         </button>
         <button
           className="Button"
@@ -27,10 +28,10 @@ function ButtonArchive({
           title={Lang.delete}
           onClick={() => handleDelete()}
         >
-          <HiOutlineTrash />
+             <Delete />
         </button>
       </>
-    </PageAction>
+    </Execution>
   )
 }
 

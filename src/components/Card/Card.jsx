@@ -1,20 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import CardTitle from '../RecordTitle/RecordTitle'
-import CardTimestamp from '../DateTime/DateTime'
-import CardBody from '../Records/Records'
+import RecordTitle from '../RecordTitle/RecordTitle'
+import DateTime from '../DateTime/DateTime'
+import Records from '../Records/Records'
 
 function Card({ note }) {
   return (
-    <article className="note-item">
-      <CardTitle
+    <article className="item-records">
+      <RecordTitle
         id={note.id}
         title={note.title}
       />
-      <CardTimestamp
+      <DateTime
         timestamp={note.createdAt}
       />
-      <CardBody
+      <Records
         body={note.body}
       />
     </article>

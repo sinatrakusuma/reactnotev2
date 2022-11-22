@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { showFormattedDate } from '../../utils'
+import { formatDatetime } from '../../utils'
 
 function DateTime({ timestamp }) {
   return (
-    <p className="note-item__createdAt">
-      { showFormattedDate(timestamp) }
+    <p className="item-records__createdAt">
+      { formatDatetime(timestamp) }
     </p>
   )
 }

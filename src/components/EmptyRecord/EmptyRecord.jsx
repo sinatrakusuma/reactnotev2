@@ -1,12 +1,13 @@
 import React from 'react'
 import useLanguage from '../../hooks/useLanguage'
 
-export default function EmptyRecord() {
+function EmptyRecord() {
   const Lang = useLanguage('note')
 
   return (
-    <section className="notes-list-empty">
-      <p className="notes-list__empty">{ Lang.empty }</p>
+    <section className="list-record-empty">
+      <p className="record-list__empty">{ Lang.empty }</p>
     </section>
   )
 }
+export default EmptyRecord

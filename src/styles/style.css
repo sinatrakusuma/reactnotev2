@@ -5,7 +5,6 @@
   --background: #000;
   --suface: #000;
   --on-background: #fff;
-  --on-background-grey: #6d6d6d;
   --on-surface: #fff;
   }
   
@@ -13,7 +12,6 @@
     --background: #DDDDDD;
     --suface: #FFFFFF;
     --on-background: #333333;
-    --on-background-grey: #6d6d6d;
     --on-surface: #333333;
   }
   
@@ -29,7 +27,91 @@
     text-decoration: none;
   }
   
+  .container{
+    /* display: flex;
+    align-items: center;
+    justify-content: center;*/
+    margin-top: 140px;
+    font-size: 25px;
+    flex-direction: column; 
+    display: flex;
+    /* width: 90vw; */
+    align-items: center;
+    justify-content: center;
+    /* margin: 0; */
+    color: #fff;
+    /* font-size: 96px; */
+    /* font-family: 'Fira Mono', monospace; */
+    letter-spacing: 3px;
+  }
+
+  .container{
+    animation: glitch 1s linear infinite;
+  }
   
+  @keyframes glitch{
+    2%,64%{
+      transform: translate(2px,0) skew(0deg);
+    }
+    4%,60%{
+      transform: translate(-2px,0) skew(0deg);
+    }
+    62%{
+      transform: translate(0,0) skew(5deg); 
+    }
+  }
+
+  .container::before{
+    animation: glitchTop 0.9s linear infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  }
+
+  @keyframes glitchTop{
+    2%,64%{
+      transform: translate(2px,-2px);
+    }
+    4%,60%{
+      transform: translate(-2px,2px);
+    }
+    62%{
+      transform: translate(13px,-1px) skew(-13deg); 
+    }
+  }
+
+  .container::after{
+    animation: glitchBotom 1s linear infinite;
+  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+  }
+
+  @keyframes glitchBotom{
+    2%,64%{
+      transform: translate(-2px,0);
+    }
+    4%,60%{
+      transform: translate(-2px,0);
+    }
+    62%{
+      transform: translate(-22px,5px) skew(21deg); 
+    }
+  }
+
+  .err{
+    margin-right: 10px;
+  }
+
+  .err-msg{
+    margin-top: 5px;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
   body {
     font-family: 'Inter', sans-serif;
   }
@@ -54,7 +136,7 @@
   }
   
   header .navgator ul li:hover {
-    border: 1px solid #ffffff;
+    border: 1px solid var(--on-background);
     padding: 5px;
     border-radius: 10px;
     font-weight: bold;
@@ -74,7 +156,7 @@
     max-width: 1200px;
   }
   
-  .notes-list {
+  .record-list {
     margin-top: 32px;
     display: grid;
     grid-template-columns: 1fr;
@@ -82,32 +164,32 @@
     padding: 16px 8px;
   }
   
-  .notes-list-empty {
+  .list-record-empty {
     margin-top: 32px;
     padding: 16px 8px;
   }
   
-  .notes-list-empty p {
+  .list-record-empty p {
     text-align: center;
-    color: var(--on-background-grey);
+    color: var(--on-background);
   }
-  .note-item {
+  .item-records {
     padding: 16px;
     border-radius: 8px;
     border: 1px solid var(--on-background);
   }
   
-  .note-item__title {
+  .item-records__title {
     margin: 4px 0;
   }
   
-  .note-item__createdAt {
-    color: var(--on-background-grey);
+  .item-records__createdAt {
+    color: var(--on-background);
     font-size: 14px;
     margin: 4px 0;
   }
   
-  .note-item__body {
+  .item-records__body {
     margin-top: 16px;
     overflow: hidden;
     display: -webkit-box;
@@ -116,37 +198,37 @@
     -webkit-box-orient: vertical;
   }
   
-  .detail-page {
+  .record-detail {
     margin: 0 auto;
     margin-top: 32px; 
     width: 90%;
   }
   
-  .detail-page__title {
+  .record-detail__title {
     font-size: 48px;
     margin-bottom: 8px;
     word-wrap: break-word;
   }
   
-  .detail-page__createdAt {
-    color: var(--on-background-grey)
+  .record-detail__createdAt {
+    color: var(--on-background)
   }
   
-  .detail-page__body {
+  .record-detail__body {
     line-height: 1.5;
     margin-top: 36px;
     font-size: 18px;
   }
-  .detail-page__body a, .login-page__footer a, .register-page__footer a {
+  .record-detail__body a, .login-page__footer a, .register-page__footer a {
     text-decoration: underline;
   }
   
-  .detail-page__action, .homepage__action, .add-new-page__action, .edit-page__action {
+  .record-detail__execution, .homepage__execution, .add-records__execution, .edit-page__execution {
     position: fixed;
     display: flex;
     gap: 16px;
-    bottom: 32px;
-    right: 32px;
+    bottom: 50px;
+    right: 30px;
   }
   
   .Button {
@@ -154,21 +236,42 @@
     align-items: center;
     justify-content: center;
     font-size: 32px;
-    border: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
+    border: 4px solid var(--on-background);
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
     background-color: var(--on-background);
     color: var(--background);
     padding: 8px;
     cursor: pointer;
   }
+  .new-add-record__execution{
+    position: fixed;
+    display: flex;
+    gap: 16px;
+    bottom: 50px;
+    right: 30px;
+  }
+  .Button:hover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    border: 4px solid var(--on-background);
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background-color: var(--background);
+    color: var(--on-background);
+    padding: 8px;
+    cursor: pointer;
+  }
   
-  .add-new-page__input, .edit-page__input {
+  .add-records__input, .edit-page__input {
     margin-top: 32px;
   }
   
-  .add-new-page__input .add-new-page__input__title, .edit-page__input .edit-page__input__title {
+  .add-records__input .add-records__input__title, .edit-page__input .edit-page__input__title {
     width: 100%;
     background-color: transparent;
     border: 0;
@@ -179,11 +282,11 @@
     padding: 8px 0;
   }
   
-  .add-new-page__input__title::placeholder, .edit-page__input__title::placeholder {
-    color: var(--on-background-grey);
+  .add-records__input__title::placeholder, .edit-page__input__title::placeholder {
+    color: var(--on-background);
   }
   
-  .add-new-page__input .add-new-page__input__body, .edit-page__input .edit-page__input__body {
+  .add-records__input .add-records__input__body, .edit-page__input .edit-page__input__body {
     width: 100%;
     background-color: transparent;
     border: 0;
@@ -200,7 +303,7 @@
   
   [data-placeholder]:empty::before {
     content: attr(data-placeholder);
-    color: var(--on-background-grey)
+    color: var(--on-background)
   }
   
   .search-bar input {
@@ -215,7 +318,7 @@
   }
   
   .search-bar input::placeholder {
-    color: var(--on-background-grey);
+    color: var(--on-background);
   }
   
   .toggle-theme, .toggle-locale, .button-logout {
@@ -289,23 +392,23 @@
   }
   
   @media screen and (min-width: 650px) {
-    .notes-list {
+    .record-list {
       grid-template-columns: repeat(2, 1fr);
     }
   
-    .detail-page__title { 
+    .record-detail__title { 
       font-size: 64px;
     }
   }
   
   @media screen and (min-width: 850px) {
-    .notes-list {
+    .record-list {
       grid-template-columns: repeat(3, 1fr);
     }
   }
   
   @media screen and (min-width: 1200px) {
-    .notes-list {
+    .record-list {
       grid-template-columns: repeat(4, 1fr);
     }
   }

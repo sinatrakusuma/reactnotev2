@@ -4,7 +4,7 @@ import Card from '../Card/Card'
 
 function ListRecord({ notes }) {
   return (
-    <section className="notes-list">
+    <section className="record-list">
       {notes.map((note) => <Card key={note.id} note={note} />)}
     </section>
   )

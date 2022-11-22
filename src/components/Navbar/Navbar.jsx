@@ -6,7 +6,7 @@ import SwitchLang from '../SwitchLang/SwitchLang'
 import ButtonLogout from '../ButtonLogout/ButtonLogout'
 import SwitchTheme from '../SwitchTheme/SwitchTheme'
 
-export default function Navbar() {
+function Navbar() {
   const { auth } = useContext(AuthContext)
   const { pathname } = useLocation()
   const Lang = useLanguage('app')
@@ -46,3 +46,4 @@ export default function Navbar() {
     </>
   )
 }
+export default Navbar

@@ -1,23 +1,24 @@
 import { useNavigate } from 'react-router-dom'
 import React from 'react'
 import PlusOneIcon from '@mui/icons-material/PlusOne';
-import PageAction from '../Execution/Execution'
+import Execution from '../Execution/Execution'
 import useLanguage from '../../hooks/useLanguage'
 
-export default function ButtonAdd() {
+function ButtonAdd() {
   const Lang = useLanguage('app')
-  const navigate = useNavigate()
+  const Navigation = useNavigate()
 
   return (
-    <PageAction page="homepage">
+    <Execution page="homepage">
       <button
         className="Button"
         type="button"
         title={Lang.add}
-        onClick={() => navigate('/notes/new')}
+        onClick={() => Navigation('/notes/new')}
       >
         <PlusOneIcon />
       </button>
-    </PageAction>
+    </Execution>
   )
 }
+export default ButtonAdd

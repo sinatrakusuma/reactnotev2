@@ -14,7 +14,7 @@ import useLanguage from '../../hooks/useLanguage'
 export default function NotesNewPages() {
   const textApp = useLanguage('app')
   const textNote = useLanguage('notesNew')
-  const navigate = useNavigate()
+  const Navigation = useNavigate()
 
   const [ title, setTitle ] = useInput('')
   const [ body, setBody ] = useState(
@@ -29,13 +29,13 @@ export default function NotesNewPages() {
     setBody(body)
   }
 
-  const handleSave = () => {
+  const savefunction = () => {
     const bodyParsed = draftToHtml(convertToRaw(body.getCurrentContent()))
     addNote({ title, body: bodyParsed })
       .then((res) => {
         if (!res.error) {
           alert(textNote.msgSuccess)
-          navigate('/')
+          Navigation('/')
         }
       })
       .catch(() => {
@@ -45,10 +45,10 @@ export default function NotesNewPages() {
   }
 
   return (
-    <section className="add-new-page">
-      <div className="add-new-page__input">
+    <section className="add-records">
+      <div className="add-records__input">
         <input
-          className="add-new-page__input__title"
+          className="add-records__input__title"
           placeholder={textNote.titlePlaceholder}
           value={title}
           onChange={setTitle}
@@ -62,7 +62,7 @@ export default function NotesNewPages() {
         />
       </div>
       <ButtonAll
-        handleSave={handleSave}
+        savefunction={savefunction}
       />
     </section>
 

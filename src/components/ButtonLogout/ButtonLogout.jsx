@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
-import { MdLogout } from 'react-icons/md'
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import AuthContext from '../../contexts/AuthContext'
 import useLanguage from '../../hooks/useLanguage'
 
-export default function ButtonLogout() {
+function ButtonLogout() {
   const { auth } = useContext(AuthContext)
   const Lang = useLanguage('app')
 
-  const handleLogout = () => {
+  const functionLogout = () => {
     if (confirm(Lang.msg.confirm)) {
       localStorage.removeItem('accessToken')
       window.location = '/'
@@ -22,12 +22,13 @@ export default function ButtonLogout() {
           type="button"
           title="Logout"
           className="button-logout"
-          onClick={handleLogout}
+          onClick={functionLogout}
         >
-          <MdLogout />
+          <ExitToAppIcon/>
         </button>
       ) : ''
     }
     </>
   )
 }
+export default ButtonLogout

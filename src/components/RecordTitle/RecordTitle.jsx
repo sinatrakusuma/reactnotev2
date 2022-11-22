@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-function CardTitle({ id, title }) {
+function RecordTitle({ id, title }) {
   return (
-    <h3 className="note-item__title">
+    <h3 className="item-records__title">
       <Link
         to={`/notes/${id}`}
         title={title}
@@ -15,9 +15,9 @@ function CardTitle({ id, title }) {
   )
 }
 
-CardTitle.propTypes = {
+RecordTitle.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired
 }
 
-export default CardTitle
+export default RecordTitle

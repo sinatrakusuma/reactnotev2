@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import parser from 'html-react-parser'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { HiArrowLeft } from 'react-icons/hi'
-import { showFormattedDate } from '../../utils'
+import { formatDatetime } from '../../utils'
 import {
   archiveNote, deleteNote, getNote, unarchiveNote
 } from '../../utils/network-data'
@@ -17,7 +17,7 @@ export default function NotesIdPages() {
   const { id } = useParams()
   const textApp = useLanguage('app')
   const textNote = useLanguage('notesId')
-  const navigate = useNavigate()
+  const Navigation = useNavigate()
 
   const handleArchive = () => {
     if (confirm(textApp.msg.confirm)) {
@@ -32,7 +32,7 @@ export default function NotesIdPages() {
       methods
         .then((res) => {
           if (!res.error) {
-            navigate(navigateTo)
+            Navigation(navigateTo)
           }
         })
         .catch(() => {
@@ -45,7 +45,7 @@ export default function NotesIdPages() {
     if (confirm(textApp.msg.confirm)) {
       deleteNote(id).then(res => {
         if (!res.error) {
-          navigate('/')
+          Navigation('/')
         }
       })
       .catch(() => {
@@ -73,7 +73,7 @@ export default function NotesIdPages() {
   }, [])
 
   return (
-    <section className="detail-page">
+    <section className="record-detail">
       { ('id' in note && !loading) ? (
         <>
           <Link
@@ -84,13 +84,13 @@ export default function NotesIdPages() {
             {' '}
             { textApp.back }
           </Link>
-          <h3 className="detail-page__title">
+          <h3 className="record-detail__title">
             { note.title }
           </h3>
-          <p className="detail-page__createdAt">
-            {showFormattedDate(note.createdAt)}
+          <p className="record-detail__createdAt">
+            {formatDatetime(note.createdAt)}
           </p>
-          <div className="detail-page__body">
+          <div className="record-detail__body">
             { parser(note.body) }
           </div>
           <ButtonArchive
