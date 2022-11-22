@@ -15,7 +15,7 @@ export default function ArchivesPage() {
   const [notes, setNotes] = useState([]) // filtered notes
   const [search, setSearch] = useInput('')
   const [locale] = useState('id')
-  const text = useLanguage('archive')
+  const Lang = useLanguage('archive')
   const textNote = useLanguage('note')
   
   /**
@@ -41,6 +41,10 @@ export default function ArchivesPage() {
       initNotesFromApi()
     }
 
+    /**
+     * Jika sudah init notes
+     * filter dari memory local
+     */
     if (initNotes) {
       let tempDataNotes = [...dataNotes]
       if (search !== '') {
@@ -51,10 +55,10 @@ export default function ArchivesPage() {
   }, [search])
   return (
     <section className="homepage">
-      <h2>{ text.header }</h2>
+      <h2>{ Lang.header }</h2>
       <section className="search-bar">
         <input
-          type="text"
+          type="Lang"
           placeholder={textNote.searchPlaceholder}
           value={search}
           onChange={setSearch}

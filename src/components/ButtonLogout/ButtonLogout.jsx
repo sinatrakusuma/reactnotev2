@@ -5,10 +5,10 @@ import useLanguage from '../../hooks/useLanguage'
 
 export default function ButtonLogout() {
   const { auth } = useContext(AuthContext)
-  const text = useLanguage('app')
+  const Lang = useLanguage('app')
 
   const handleLogout = () => {
-    if (confirm(text.msg.confirm)) {
+    if (confirm(Lang.msg.confirm)) {
       localStorage.removeItem('accessToken')
       window.location = '/'
     }

@@ -9,7 +9,7 @@ import SwitchTheme from '../SwitchTheme/SwitchTheme'
 export default function Navbar() {
   const { auth } = useContext(AuthContext)
   const { pathname } = useLocation()
-  const text = useLanguage('app')
+  const Lang = useLanguage('app')
 
   return (
     <>
@@ -22,16 +22,16 @@ export default function Navbar() {
                   pathname !== '/archives' ? (
                     <Link
                       to="/archives"
-                      title={text.nav.archives}
+                      title={Lang.nav.archives}
                     >
-                      {text.nav.archives}
+                      {Lang.nav.archives}
                     </Link>
                   ) : (
                     <Link
                       to="/"
-                      title={text.nav.archives}
+                      title={Lang.nav.archives}
                     >
-                      {text.nav.home}
+                      {Lang.nav.home}
                     </Link>
                   )
                 }

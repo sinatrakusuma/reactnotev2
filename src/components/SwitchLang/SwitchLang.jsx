@@ -9,7 +9,7 @@ export default function SwitchLang() {
     <button
       type="button"
       title={locale === 'id' ? 'Indonesia' : 'English'}
-      className="Switch-Lang"
+      className="toggle-locale"
       onClick={toggleLocale}
     >
       <MdGTranslate />

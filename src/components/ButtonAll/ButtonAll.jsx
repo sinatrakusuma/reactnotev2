@@ -6,7 +6,7 @@ import PageAction from '../Execution/Execution'
 import useLanguage from '../../hooks/useLanguage'
 
 function ButtonAll({ handleSave }) {
-  const text = useLanguage('app')
+  const Lang = useLanguage('app')
   const navigate = useNavigate()
 
   return (
@@ -15,7 +15,7 @@ function ButtonAll({ handleSave }) {
         <button
           className="Button"
           type="button"
-          title={text.cancel}
+          title={Lang.cancel}
           onClick={() => navigate('/')}
         >
           <HiX />
@@ -23,7 +23,7 @@ function ButtonAll({ handleSave }) {
         <button
           className="Button"
           type="button"
-          title={text.add}
+          title={Lang.add}
           onClick={() => handleSave()}
         >
           <HiCheck />

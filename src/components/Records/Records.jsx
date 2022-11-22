@@ -4,7 +4,7 @@ import { extractContent } from '../../utils'
 
 function CardBody({ body }) {
   return (
-    <p className="Card-Record__body">
+    <p className="note-item__body">
       { extractContent(body) }
     </p>
   )

@@ -42,7 +42,7 @@ const appPage = {
   const loginPage = {
     id: {
       header: 'Tolong masukan akun terlebih dahulu.',
-      footer: 'anda belum pun memiliki sebuah akun?',
+      footer: 'anda belum punya memiliki akun?',
       footerRegisterLink: 'Daftar disini'
     },
     en: {
@@ -74,12 +74,12 @@ const appPage = {
   const notePage = {
     id: {
       header: 'Catatan Aktif',
-      searchPlaceholder: 'Cari berdasarkan judul ...',
+      searchPlaceholder: 'Cari Record dengan menggunakan judul ...',
       empty: 'Tidak ada catatan.'
     },
     en: {
       header: 'Active Notes',
-      searchPlaceholder: 'Search by title ...',
+      searchPlaceholder: 'Find Records ...',
       empty: 'Empty.'
     }
   }

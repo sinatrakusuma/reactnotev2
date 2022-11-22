@@ -8,7 +8,7 @@ import useLanguage from '../../hooks/useLanguage'
 function ButtonArchive({
   archived, handleArchive, handleDelete
 }) {
-  const text = useLanguage('app')
+  const Lang = useLanguage('app')
 
   return (
     <PageAction page="detail-page">
@@ -16,7 +16,7 @@ function ButtonArchive({
         <button
           className="Button"
           type="button"
-          title={archived ? text.active : text.archive}
+          title={archived ? Lang.active : Lang.archive}
           onClick={() => handleArchive()}
         >
           {archived ? <BiArchiveOut /> : <BiArchiveIn />}
@@ -24,7 +24,7 @@ function ButtonArchive({
         <button
           className="Button"
           type="button"
-          title={text.delete}
+          title={Lang.delete}
           onClick={() => handleDelete()}
         >
           <HiOutlineTrash />
