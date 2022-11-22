@@ -4,8 +4,8 @@ import PlusOneIcon from '@mui/icons-material/PlusOne';
 import PageAction from '../Execution/Execution'
 import useLanguage from '../../hooks/useLanguage'
 
-export default function HomePageAction() {
-  const text = useLanguage('app')
+export default function ButtonAdd() {
+  const Lang = useLanguage('app')
   const navigate = useNavigate()
 
   return (
@@ -13,7 +13,7 @@ export default function HomePageAction() {
       <button
         className="Button"
         type="button"
-        title={text.add}
+        title={Lang.add}
         onClick={() => navigate('/notes/new')}
       >
         <PlusOneIcon />
