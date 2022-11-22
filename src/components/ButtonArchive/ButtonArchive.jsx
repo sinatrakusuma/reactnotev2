@@ -14,7 +14,7 @@ function ButtonArchive({
     <PageAction page="detail-page">
       <>
         <button
-          className="action"
+          className="Button"
           type="button"
           title={archived ? text.active : text.archive}
           onClick={() => handleArchive()}
@@ -22,7 +22,7 @@ function ButtonArchive({
           {archived ? <BiArchiveOut /> : <BiArchiveIn />}
         </button>
         <button
-          className="action"
+          className="Button"
           type="button"
           title={text.delete}
           onClick={() => handleDelete()}

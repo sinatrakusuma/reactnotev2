@@ -2,16 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { showFormattedDate } from '../../utils'
 
-function CardTimestamp({ timestamp }) {
+function DateTime({ timestamp }) {
   return (
-    <p className="Card-Record__createdAt">
+    <p className="note-item__createdAt">
       { showFormattedDate(timestamp) }
     </p>
   )
 }
 
-CardTimestamp.propTypes = {
+DateTime.propTypes = {
   timestamp: PropTypes.string.isRequired
 }
 
-export default CardTimestamp
+export default DateTime

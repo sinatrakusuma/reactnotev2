@@ -13,7 +13,7 @@ function ButtonAll({ handleSave }) {
     <PageAction page="add-new-page">
       <>
         <button
-          className="action"
+          className="Button"
           type="button"
           title={text.cancel}
           onClick={() => navigate('/')}
@@ -21,7 +21,7 @@ function ButtonAll({ handleSave }) {
           <HiX />
         </button>
         <button
-          className="action"
+          className="Button"
           type="button"
           title={text.add}
           onClick={() => handleSave()}

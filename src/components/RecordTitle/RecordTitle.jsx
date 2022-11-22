@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function CardTitle({ id, title }) {
   return (
-    <h3 className="Card-Record__title">
+    <h3 className="note-item__title">
       <Link
         to={`/notes/${id}`}
         title={title}

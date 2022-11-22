@@ -1,8 +1,8 @@
-import React from 'react'
-import { HiPlus } from 'react-icons/hi'
 import { useNavigate } from 'react-router-dom'
-import useLanguage from '../../hooks/useLanguage'
+import React from 'react'
+import PlusOneIcon from '@mui/icons-material/PlusOne';
 import PageAction from '../Execution/Execution'
+import useLanguage from '../../hooks/useLanguage'
 
 export default function HomePageAction() {
   const text = useLanguage('app')
@@ -11,12 +11,12 @@ export default function HomePageAction() {
   return (
     <PageAction page="homepage">
       <button
-        className="action"
+        className="Button"
         type="button"
         title={text.add}
         onClick={() => navigate('/notes/new')}
       >
-        <HiPlus />
+        <PlusOneIcon />
       </button>
     </PageAction>
   )

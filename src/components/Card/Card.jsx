@@ -6,7 +6,7 @@ import CardBody from '../Records/Records'
 
 function Card({ note }) {
   return (
-    <article className="Card-Record">
+    <article className="note-item">
       <CardTitle
         id={note.id}
         title={note.title}
